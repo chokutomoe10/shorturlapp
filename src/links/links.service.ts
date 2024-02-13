@@ -25,6 +25,14 @@ export class LinksService {
         return link;
     }
 
+    // async createLink(name: string, url: string): Promise<Link> {
+    //     const link = this.linksRepository.create({name, url})
+
+    //     await this.linksRepository.save(link);
+
+    //     return link;
+    // }
+
     async getLink(name: string): Promise<Link> {
         const cachedItem: Link = await this.cacheManager.get(name);
         // const cachedItem = await this.cacheManager.get('cached_item');
@@ -45,4 +53,13 @@ export class LinksService {
         // await this.cacheManager.set('cached_item', newValue);
         return newValue
     }
+
+    // async getLink(name: string): Promise<Link> {
+    //     const condition: FindOneOptions<Link> = {
+    //         where : {
+    //             name: name
+    //         }
+    //     }
+    //     return this.linksRepository.findOne(condition)
+    // }
 }
